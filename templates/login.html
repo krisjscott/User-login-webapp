@@ -5,45 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css"> <!-- optional custom styles -->
 </head>
 <body>
-    <div class="container mt-5">
-        <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        {% comment %} <h1 class="text-center">Login</h1> {% endcomment %}
+
+        <form class="col-6 mx-auto card p-3 shadow-lg" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- optional welcome (kept from original) -->
             <h1 style="text-align: center;"><span style="color: blue;">Welcome</span></h1>
-
-            {% csrf_token %}  <!-- CSRF token for security -->
-
-            <!-- Login heading -->
-            <h3>Login</h3>
-            <hr>
 
             <!-- Display error/success messages -->
             {% if messages %}
             <div class="alert alert-primary" role="alert">
                 {% for message in messages %}
-                {{ message }}
+                    {{ message }}
                 {% endfor %}
             </div>
             {% endif %}
 
-            <!-- Username input field -->
-            <div class="form-group">
-                <label for="exampleInputEmail1">Username</label>
-                <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp"
-                    placeholder="Enter username" required>
+            <label for="exampleInputEmail1">Username:</label>
+            <input type="text" class="form-control mb-3" name="username" id="exampleInputEmail1"
+                   placeholder="Enter your Username" required>
+
+            <label for="exampleInputPassword1">Password:</label>
+            <input type="password" name="password" class="form-control mb-3" id="exampleInputPassword1"
+                   placeholder="Enter your Password" required>
+
+            <p>Don't have an account?
+                <a href="/register/" style="text-decoration: none;">Create an account</a>
+            </p>
+
+            <div class="wrap text-right">
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-
-            <!-- Password input field -->
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
-            </div>
-
-            <!-- Link to registration page -->
-            <p>Don't have an account <a href="/register/">Register</a> </p>
-
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </body>
