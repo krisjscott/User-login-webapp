@@ -104,7 +104,19 @@ Ideas you can build on:
 
 ## 📄 License
 
-Add a license of your choice (MIT, GPL, etc.).
+This project is licensed under the **Apache License, Version 2.0**.
+
+You are free to:
+- Use the code for personal or commercial purposes
+- Modify and distribute it
+- Include it in larger projects
+
+As long as you:
+- Include the original copyright notice
+- Include a copy of the Apache 2.0 license
+
+The full license text is available in the [`LICENSE`](./LICENSE) file.
+
 
 ---
 
